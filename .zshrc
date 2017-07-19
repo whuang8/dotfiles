@@ -1,10 +1,12 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/whuang1/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/williamhuang/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="honukai"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -51,12 +53,11 @@ ZSH_THEME="honukai"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+source $ZSH/oh-my-zsh.sh
+
 # User configuration
 
-# export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -74,20 +75,45 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Zsh Aliases
-
-# General aliases
-alias v="vim"
-
-# Config aliases
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
 alias zshconfig="vim ~/.zshrc"
-alias ohmyzsh="vim ~/.oh-my-zsh"
+alias yaybee="cat ~/OhMyZsh/bee.txt"
+alias txtbee="ruby ~/Projects/message-prompt/send-sms.rb"
+
+export PGHOST=localhost
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# MAMP
+alias msql="/Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot"
+
+# Github
+export GH_ID="47b40b50509ed9697c52" # Github Client ID
+export GH_SECRET="b9bac0d6fc231504f757272ef216475841ee07fe" # Github Client Secret
+alias add="git add ."
+alias commit="git commit -m"
+alias status="git status"
+alias log="git log"
+alias gtfo="git branch --merged | egrep -v \"(^\*|master|dev)\" | xargs git branch -d"
 
 # Rails aliases
-alias rserver="rails server"
 alias bebr="bundle exec bin/rake"
-alias dbreset="bundle exec bin/rake db:reset"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source dnvm.sh
+# Junit
+export JUNIT_HOME="$HOME/Java/JUnit"
+export PATH="$PATH:$JUNIT_HOME"
+export CLASSPATH="$CLASSPATH:$JUNIT_HOME/junit-4.12.jar:$JUNIT_HOME/hamcrest-core-1.3.jar"
+alias junit="java org.junit.runner.JUnitCore"
+
+# Swift
+export SWIFTENV_ROOT="$HOME/.swiftenv"
+export PATH="$SWIFTENV_ROOT/bin:$PATH"
+eval "$(swiftenv init -)"
+
+# School
+export PATH="/usr/local/p/versions/python:$PATH"
 
