@@ -82,8 +82,6 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
-alias yaybee="cat ~/OhMyZsh/bee.txt"
-alias txtbee="ruby ~/Projects/message-prompt/send-sms.rb"
 
 export PGHOST=localhost
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
