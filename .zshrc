@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/williamhuang/.oh-my-zsh
+export ZSH=/Users/whuang/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -51,7 +51,7 @@ ZSH_THEME="honukai"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -82,9 +82,7 @@ source $ZSH/oh-my-zsh.sh
 #
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
-
 export PGHOST=localhost
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # MAMP
 alias msql="/Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot"
@@ -110,8 +108,41 @@ alias junit="java org.junit.runner.JUnitCore"
 # Swift
 export SWIFTENV_ROOT="$HOME/.swiftenv"
 export PATH="$SWIFTENV_ROOT/bin:$PATH"
-eval "$(swiftenv init -)"
 
 # School
 export PATH="/usr/local/p/versions/python:$PATH"
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/whuang/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/whuang/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/whuang/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/whuang/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export EDITOR="/usr/bin/vim"
+
+export NVM_DIR=~/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+PS1='$(kube_ps1)'$PS1
+
+alias vim='/usr/local/Cellar/vim/8.2.0200/bin/vim'
+alias tilt='/usr/local/bin/tilt'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$HOME/.rvm/bin:$PATH"
+export SSL_CERT_FILE=/usr/local/etc/openssl/cert.pem
+
+export PATH="$PATH:$HOME/go/bin"
+export GIT_DUET_CO_AUTHORED_BY=1
+
+export PATH="$PATH:/Users/whuang/Library/Python/2.7/bin:"
+export PATH="$PATH:/Users/whuang/Library/protoc-3.12.1-osx-x86_64/bin:"
+
+# K8s
+alias k="kubectl"
