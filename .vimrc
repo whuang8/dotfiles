@@ -1,12 +1,14 @@
 " Basic settings
 syntax enable
-set number
+set number relativenumber
 set cursorline
 filetype plugin indent on
 filetype on
 filetype indent on
 set iskeyword+=-
 set backspace=indent,eol,start
+set colorcolumn=80
+set nohlsearch
 
 " File specific indentation settings
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
@@ -26,7 +28,6 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
-Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/mru.vim'
 Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-bundler'
@@ -34,7 +35,23 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-commentary'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'scrooloose/nerdtree'
+
+Plug 'sheerun/vim-polyglot'
+Plug 'sainnhe/gruvbox-material'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
 call plug#end()
+
+if has('termguicolors')
+	set termguicolors
+endif
+set background=dark
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_enable_italic = 0
+colorscheme gruvbox-material
+
+let g:python_highlight_all = 1
+
 
 " Double tap space for fzf search
 let mapleader = " "
