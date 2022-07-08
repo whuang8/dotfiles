@@ -9,6 +9,7 @@ set iskeyword+=-
 set backspace=indent,eol,start
 set colorcolumn=80
 set nohlsearch
+set nofixendofline
 
 " File specific indentation settings
 autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
@@ -38,8 +39,10 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'sainnhe/gruvbox-material'
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 call plug#end()
 
 if has('termguicolors')
@@ -71,6 +74,12 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Vim-go
 let g:go_fmt_command = "goimports"
